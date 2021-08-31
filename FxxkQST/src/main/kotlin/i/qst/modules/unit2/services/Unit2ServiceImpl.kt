@@ -124,7 +124,8 @@ class Unit2ServiceImpl(
                 canEdit = getUserIdByToken(token) == it.linkedUser.userId
             )
         }
-        val size = unit2DanZiEntityRepository.countAllByLinkedDeptNameAndLinkedUserUserNameLike(dept, "%$name%")
+        val size = unit2DanZiEntityRepository
+            .countAllByLinkedDeptNameAndLinkedUserUserNameLike(dept, "%$name%")
         return Unit2TablesDto(map, pages.pageNumber, size)
     }
 
