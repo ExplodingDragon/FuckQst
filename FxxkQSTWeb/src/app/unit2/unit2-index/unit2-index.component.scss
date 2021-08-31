@@ -1,0 +1,60 @@
+.center {
+  text-align: center;
+}
+
+.red {
+  color: red;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+
+  & > * {
+    display: inline-block;
+    margin-right: 10px;
+  }
+}
+
+.img {
+  & > img {
+    width: 30px;
+  }
+}
+
+.search {
+  .search-form {
+    & > * {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+  }
+}
+
+.href {
+  text-decoration-line: underline;
+  color: blue;
+  cursor: pointer;
+}
+
+table, th, td {
+  border: 1px solid black;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+}
+
+.page {
+  margin-top: 10px;
+
+  .actions {
+    display: inline-block;
+
+    button {
+      margin-right: 10px;
+    }
+  }
+}

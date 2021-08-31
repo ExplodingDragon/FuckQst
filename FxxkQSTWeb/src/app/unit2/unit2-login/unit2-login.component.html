@@ -1,0 +1,27 @@
+<div class="context">
+  <form class="login">
+    <table>
+      <tbody>
+      <tr>
+        <td>名称:</td>
+        <td><input type="text" [formControl]="userName"></td>
+      </tr>
+      <tr>
+        <td>密码:</td>
+        <td>
+          <input type="password" [formControl]="password">
+        </td>
+      </tr>
+      <tr class="right">
+        <td colspan="2">没有账户？请 <a routerLink="../register">注册</a></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button (click)="submit()" type="button" class="btn">登录</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </form>
+
+</div>

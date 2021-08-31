@@ -1,0 +1,61 @@
+<div class="context">
+  <h1 class="center red">报销单列表</h1>
+  <div class="user" *ngIf="userName != ''">
+    <p class="name">欢迎你 ,{{userName}} </p>
+    头像：
+    <div class="img"><img [src]="photo" alt="头像"></div>
+  </div>
+  <hr>
+  <div class="search">
+    <form class="search-form">
+      姓名：<input type="text" [formControl]="searchName"> 部门：
+      <select name="exp" class="max-width"
+              [formControl]="searchDept">
+        <option *ngFor="let item of items" [value]="item">{{item}}</option>
+      </select>
+      <button type="button" (click)="search()">搜索</button>
+      <button type="button" (click)="clearSearch()">清除搜索</button>
+    </form>
+  </div>
+  <hr>
+  <a class="href" (click)="exit()">安全退出</a>
+  <hr>
+  <table>
+    <thead>
+    <tr>
+      <td><input type="checkbox"></td>
+      <td>编号</td>
+      <td>报销人</td>
+      <td>报销内容</td>
+      <td>报销日期</td>
+      <td>费用</td>
+      <td>部门</td>
+      <td><a class="href" routerLink="../update/-1">添加</a></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of tables">
+      <td><input type="checkbox"></td>
+      <td>{{item.id}}</td>
+      <td>{{item.userName}}</td>
+      <td>{{item.content}}</td>
+      <td>{{item.dateTime}}</td>
+      <td>{{item.money}}</td>
+      <td>{{item.groupName}}</td>
+      <td *ngIf="item.canEdit"><a class="href" [routerLink]="'../update/' + item.id">编辑</a>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <a class="href" (click)="delete(item.id)">删除</a></td>
+      <td *ngIf="!item.canEdit">无权限管理</td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="page">
+    当前 {{pageIndex + 1}}/{{pageSize}} 页 总数目 {{itemSize}} ，
+    <div class="actions">
+      <button type="button" [disabled]="pageIndex<=0" (click)="update(0)">首页</button>
+      <button type="button" [disabled]="pageIndex<=0" (click)="update(pageIndex  - 1)">上一页</button>
+      <button type="button" [disabled]=" pageIndex >=pageSize -1 " (click)="update(pageIndex  + 1)">下一页</button>
+      <button type="button" [disabled]=" pageIndex >=pageSize -1 " (click)="update(pageSize - 1)">尾页</button>
+    </div>
+  </div>
+</div>

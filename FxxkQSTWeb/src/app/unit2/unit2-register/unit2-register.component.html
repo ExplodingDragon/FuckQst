@@ -1,0 +1,35 @@
+<div class="context">
+  <form>
+    <table>
+      <tr>
+        <td>用户名</td>
+        <td><input type="text" name="user" [formControl]="userName"></td>
+      </tr>
+      <tr>
+        <td>密码</td>
+        <td><input type="password" name="password" [formControl]="password"></td>
+      </tr>
+      <tr>
+        <td>重复</td>
+        <td><input type="password" name="passwordAgain" [formControl]="password2"></td>
+      </tr>
+      <tr>
+        <td>部门</td>
+        <td><select name="exp" class="max-width" [formControl]="dept">
+          <option *ngFor="let item of items" [value]="item">{{item}}</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td>头像</td>
+        <td>
+          <label for="file" class="to-btn max-width">选择图片</label>
+          <input id="file"  (change)="upload($event.target)" type="file" name="file" accept="image/jpeg" value="" style="display: none"></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button type="button" class="max-width" (click)="submit()">注册</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>

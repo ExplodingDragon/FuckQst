@@ -1,0 +1,46 @@
+<div class="context">
+  <h1 class="title" *ngIf="id == '-1'">添加</h1>
+  <h1 class="title" *ngIf="id != '-1'">修改</h1>
+
+  <div class="update">
+    <form class="update-form">
+      <table>
+        <tr *ngIf="id != '-1'">
+          <td class="name">编号</td>
+          <td><input type="text" class="input" [value]="id" [disabled]="true"></td>
+        </tr>
+        <tr>
+          <td class="name">报销人</td>
+          <td><input class="input" type="text" [value]="user" name="user"  [disabled]="true" ></td>
+        </tr>
+        <tr>
+          <td class="name">报销内容</td>
+          <td><input class="input" type="text" [formControl]="content" ></td>
+        </tr>
+        <tr>
+          <td class="name">报销日期</td>
+          <td><input class="input" type="date" [formControl]="date"></td>
+        </tr>
+        <tr>
+          <td class="name">费用</td>
+          <td><input class="input" type="number" [formControl]="money"></td>
+
+        </tr>
+        <tr>
+          <td class="name">部门</td>
+          <td>
+            <select name="exp" class="input" [formControl]="dept">
+              <option *ngFor="let item of items" [value]="item">{{item}}</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button type="button" class="input" (click)="update()">执行</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+
+</div>

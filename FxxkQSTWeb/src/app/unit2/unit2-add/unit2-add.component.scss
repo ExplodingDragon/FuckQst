@@ -1,0 +1,21 @@
+.title{
+  text-align: center;
+}
+.context{
+  text-align: center;
+}
+.update-form{
+  display: inline-block;
+  .name{
+    text-align: right;
+  }
+  .name::after{
+    content: ":";
+  }
+
+  .input{
+    display: inline-block;
+    width: 100%;
+  }
+
+}
